@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{145567FE-0B23-4858-AD58-420DC21718D6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HavokHelper</RootNamespace>
+    <AssemblyName>HavokHelper</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Form\Form1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Form.resx</DependentUpon>
+    </Compile>
+    <Compile Include="src\Lua\Constants.cs" />
+    <Compile Include="src\Form\Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Form\Form.Designer.cs">
+      <DependentUpon>Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Lua\Header.cs" />
+    <Compile Include="src\Lua\Instructions\AddBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\AddInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\BaseInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\CallCInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\CallIInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\CallInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\CallIR1Instruction.cs" />
+    <Compile Include="src\Lua\Instructions\CallMInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\ChecktypeDInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\ChecktypeInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\ChecktypesInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\CloseInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\ClosureInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\ConcatInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\DataInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\DivBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\DivInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\EqBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\EqInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\ForloopInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\ForprepInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\GetfieldInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\GetfieldMmInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\GetfieldR1Instruction.cs" />
+    <Compile Include="src\Lua\Instructions\GetglobalInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\GetglobalMemInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\GetslotDInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\GetslotInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\GetslotmtInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\GettableInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\GettableNInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\GettableSInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\GetupvalInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\Helpers\CallHelper.cs" />
+    <Compile Include="src\Lua\Instructions\Helpers\IfExpHelper.cs" />
+    <Compile Include="src\Lua\Instructions\Helpers\TestHelper.cs" />
+    <Compile Include="src\Lua\Instructions\IntrinsicIndexInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\IntrinsicIndexLiteralInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\IntrinsicNewindexInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\IntrinsicNewindexLiteralInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\IntrinsicSelfInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\IntrinsicSelfLiteralInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\JmpInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\LeBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\LeInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\LoadboolInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\LoadkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\LoadnilInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\LtBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\LtInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\ModBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\ModInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\MoveInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\MulBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\MulInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\NewstructInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\NewtableInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\NotInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\NotR1Instruction.cs" />
+    <Compile Include="src\Lua\Instructions\PowBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\PowInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\ReturnInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SelfInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SelfslotInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SelfslotmtInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SetfieldInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SetfieldR1Instruction.cs" />
+    <Compile Include="src\Lua\Instructions\SetglobalInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SetlistInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SetslotiInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SetslotInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SetslotmtInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SetslotnInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SetslotsInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SettableBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SettableInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SettableNBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SettableNInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SettableSBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SettableSInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SetupvalInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SetupvalR1Instruction.cs" />
+    <Compile Include="src\Lua\Instructions\SubBkInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\SubInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\TailcallCInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\TailcallIInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\TailcallInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\TailcallIR1Instruction.cs" />
+    <Compile Include="src\Lua\Instructions\TailcallMInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\TestInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\TestR1Instruction.cs" />
+    <Compile Include="src\Lua\Instructions\TestsetInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\TforloopInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\UnmInstruction.cs" />
+    <Compile Include="src\Lua\Instructions\VarargInstruction.cs" />
+    <Compile Include="src\Lua\Script.cs" />
+    <Compile Include="src\Lua\Stub.cs" />
+    <Compile Include="src\Parser\JSParserPort.cs" />
+    <Compile Include="src\Program.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="src\Form\Form.resx">
+      <DependentUpon>Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Form\Form.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Form1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
