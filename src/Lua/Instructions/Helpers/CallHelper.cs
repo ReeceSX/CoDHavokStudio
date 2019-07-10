@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HavokHelper.Lua.Instructions.Helpers
 {
@@ -21,11 +22,11 @@ namespace HavokHelper.Lua.Instructions.Helpers
             if (Cur.C > 1)
             {
                 int ReturnParameters;
-                ReturnParameters = Cur.C - 1;
+                ReturnParameters = Cur.C - 1; // TODO: could be -2
                 if (ReturnParameters != 0)
                 {
                     for (int I = 0; I < ReturnParameters; I++)
-                        ReturnVals.Append("val_" + I + ", ");
+                        ReturnVals.Append("var_" + (I + Cur.A) + ", ");
                     ReturnVals.Remove(ReturnVals.Length - 2, 2);
                     ReturnVals.Append("\t= ");
                 }
@@ -36,7 +37,7 @@ namespace HavokHelper.Lua.Instructions.Helpers
             }
 
             for (int Reg = Cur.A + 1; Reg < Cur.A + Cur.B; Reg++)
-                Parameters.Append(String.Format("val_{0}, ", Reg));
+                Parameters.Append(String.Format("var_{0}, ", Reg));
 
             if (Parameters.Length != 0)
                 Parameters.Remove(Parameters.Length - 2, 2);

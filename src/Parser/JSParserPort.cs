@@ -12,7 +12,7 @@ namespace HavokHelper.src.Parser
 {
     // port of          https://bitbucket.org/codt6/luadsm/src/master/asm/assembler.js
     // asm derived from https://bitbucket.org/codt6/luadsm/src/master/asm/disassembler.js
-    // this shit is ugly as fuck lol
+    // this really needs to be rewritten
     public class JSParserPort
     {
 
@@ -32,8 +32,8 @@ namespace HavokHelper.src.Parser
 
         protected static LineData[] ParseLine(String line)
         {
-            if (line.IndexOf(';') != -1)
-                line = line.Substring(0, line.IndexOf(';'));
+            //if (line.IndexOf(';') != -1)
+            //    line = line.Substring(0, line.IndexOf(';'));
 
             String[] strs = line.Replace('\t', ' ')   // convert tabs into spaces
                                     .Replace(',', ' ')  // convert ,'s into spaces
@@ -49,11 +49,20 @@ namespace HavokHelper.src.Parser
 
             bool Hack = false;
             int I = 0;
-            strs.ToArray().ToList().ForEach((item) =>
+            StringBuilder sb  = new StringBuilder();
+            foreach (var item in strs)
             {
-                if (Hack) return;
                 LineData data = new LineData();
-                if (item.Length == 0) return;
+
+                if (item.Length == 0)
+                    continue;
+
+                if (Hack)
+                {
+                    sb.Append(item);
+                    continue;
+                }
+
                 ret[I++] = data;
 
                 data.Raw = item;
@@ -68,8 +77,17 @@ namespace HavokHelper.src.Parser
                     data.BoolVal = item.Equals("true");
                     data.BoolPresent = true;
                 }
+                else if (item.StartsWith("\""))
+                {
+                    sb.Append(item.Substring(1));
+                    Hack = true;
+                }
+            }
 
-            });
+            if (Hack)
+            {
+                ret[I - 1].Raw = sb.ToString().Substring(0, sb.Length - 1);
+            }
 
 
             if (0 == I) return null;
